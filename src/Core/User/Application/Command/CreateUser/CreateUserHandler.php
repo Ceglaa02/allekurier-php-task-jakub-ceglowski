@@ -2,9 +2,6 @@
 
 namespace App\Core\User\Application\Command\CreateUser;
 
-use App\Common\Mailer\SMPTMailer;
-use App\Core\Invoice\Application\Command\CreateInvoice\CreateInvoiceCommand;
-use App\Core\Invoice\Infrastructure\Notification\Email\Mailer;
 use App\Core\User\Domain\Event\UserCreatedEvent;
 use App\Core\User\Domain\Repository\UserRepositoryInterface;
 use App\Core\User\Domain\User;

@@ -2,7 +2,7 @@
 
 namespace App\Core\User\Application\EventListener;
 
-use App\Core\Invoice\Domain\Notification\NotificationInterface;
+use App\Core\User\Domain\Notification\NotificationInterface;
 use App\Core\User\Domain\Event\UserCreatedEvent;
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 
