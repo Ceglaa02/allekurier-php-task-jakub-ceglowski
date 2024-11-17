@@ -40,6 +40,18 @@ class DoctrineUserRepository implements UserRepositoryInterface
         return $user;
     }
 
+    public function getNoActiveUsers(): array
+    {
+        $noActiveUsersQuery = $this->entityManager->createQueryBuilder()
+            ->select('u')
+            ->from(User::class, 'u')
+            ->where('u.active = 0')
+            ->getQuery()
+            ->getResult();
+
+        return is_array($noActiveUsersQuery) ? $noActiveUsersQuery : [];
+    }
+
     public function save(User $user): void
     {
         $this->entityManager->persist($user);

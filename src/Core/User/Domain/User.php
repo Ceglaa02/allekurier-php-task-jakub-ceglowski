@@ -36,6 +36,10 @@ class User
         $this->email = $email;
     }
 
+    public function getId(): ?int{
+        return $this->id;
+    }
+
     public function getEmail(): string
     {
         return $this->email;
