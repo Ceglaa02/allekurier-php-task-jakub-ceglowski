@@ -2,6 +2,7 @@
 
 namespace App\Core\User\Infrastructure\Persistance;
 
+use App\Core\User\Domain\Event\UserCreatedEvent;
 use App\Core\User\Domain\Exception\UserNotFoundException;
 use App\Core\User\Domain\Repository\UserRepositoryInterface;
 use App\Core\User\Domain\User;
@@ -47,6 +48,8 @@ class DoctrineUserRepository implements UserRepositoryInterface
         foreach ($events as $event) {
             $this->eventDispatcher->dispatch($event);
         }
+
+        $this->eventDispatcher->dispatch(new UserCreatedEvent($user));
     }
 
     public function flush(): void{
